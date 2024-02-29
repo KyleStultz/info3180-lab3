@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block main%}
+
+<h1>Contact Form</h1>
+<hr>
+<p>Fill in this form to contact the site owners.</p>
+
+<form method="post" action="{{ url_for('contact') }}" >
+    {{ form.csrf_token }}
+    <div class="inpuHeader">
+        {{ form.name.label(class="form-label") }} {{ form.name(class="form-control" , placeholder="John Brown" ,size=20) }} 
+    </div>
+
+    <div class="inpuHeader">
+        {{ form.email.label(class="form-label") }} {{ form.email(class="form-control", placeholder="email@example.com") }}
+    </div>
+    <div class="inpuHeader">
+        {{ form.subject.label(class="form-label") }} {{ form.subject(class="form-control", placeholder="Subject" ) }}
+    </div>
+    <div class="inpuHeader">
+        {{ form.message.label(class="form-label") }} {{ form.message(class="form-control", placeholder="Enter Message Here", rows="3") }}
+    </div>
+
+    
+
+<button type="submit" class="submitBtn">Submit</button>
+</form>
+
+{%endblock%}
